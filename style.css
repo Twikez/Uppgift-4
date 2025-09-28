@@ -6,3 +6,9 @@ li.done {
   text-decoration: line-through;
   color: gray;
   }
+
+  .delete {
+  margin-left: 10px;
+  color: red;
+  cursor: pointer;
+}

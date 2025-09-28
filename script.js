@@ -27,7 +27,6 @@ addButton.addEventListener("click", () => {
 // Funktion för att visa uppgifter
 function renderTasks() {
   taskList.innerHTML = "";
-
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
     li.textContent = task.text;
@@ -36,12 +35,27 @@ function renderTasks() {
       li.classList.add("done");
     }
 
-// Klicka för att markera/avmarkera
+    // Klicka för att markera/avmarkera
     li.addEventListener("click", () => {
       task.done = !task.done;
       renderTasks();
     });
 
-    taskList.appendChild(li); 
-  }); 
-} 
+    // Skapa papperskorg
+    const del = document.createElement("span");
+    del.textContent = "🗑️";
+    del.classList.add("delete");
+    del.addEventListener("click", (e) => {
+      e.stopPropagation(); 
+      tasks.splice(index, 1); 
+      renderTasks();
+    });
+
+    li.appendChild(del);
+    taskList.appendChild(li);
+  });
+
+  // Uppdatera räkning
+  const doneTasks = tasks.filter(t => t.done).length;
+  doneCount.textContent = doneTasks;
+}
