@@ -1,9 +1,8 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 20px;
 }
 
 li.done {
   text-decoration: line-through;
   color: gray;
-}
+  }
