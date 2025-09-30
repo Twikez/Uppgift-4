@@ -1,7 +1,17 @@
 body {
-  margin: 20px;
+  display: flex;
+  justify-content: center; /* horisontellt */
+  align-items: center;    /* vertikalt */
+  min-height: 45vh;      /* hela skärmhöjden */
+  margin: 0;
   font-family: Arial, sans-serif;
+  background-color: #2a0d93c6;
 }
+
+
+
+
+
 
 li {
   margin-bottom: 10px;
@@ -16,3 +26,4 @@ li {
   margin-left: 10px;
   cursor: pointer;
 }
+
