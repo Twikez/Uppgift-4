@@ -1,14 +1,18 @@
 body {
   margin: 20px;
+  font-family: Arial, sans-serif;
 }
 
-li.done {
+li {
+  margin-bottom: 10px;
+}
+
+.done {
   text-decoration: line-through;
   color: gray;
-  }
+}
 
-  .delete {
+.delete {
   margin-left: 10px;
   cursor: pointer;
 }
-

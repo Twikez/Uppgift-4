@@ -27,16 +27,20 @@ addButton.addEventListener("click", () => {
 // Funktion för att visa uppgifter
 function renderTasks() {
   taskList.innerHTML = "";
+
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
-    li.textContent = task.text;
 
+    // Skapa span för texten
+    const taskText = document.createElement("span");
+    taskText.textContent = task.text;
     if (task.done) {
-      li.classList.add("done");
+      taskText.classList.add("done");
     }
+    li.appendChild(taskText);
 
-    // Klicka för att markera/avmarkera
-    li.addEventListener("click", () => {
+    // Klicka på texten för att markera/avmarkera
+    taskText.addEventListener("click", () => {
       task.done = !task.done;
       renderTasks();
     });
@@ -46,8 +50,8 @@ function renderTasks() {
     del.textContent = "🗑️";
     del.classList.add("delete");
     del.addEventListener("click", (e) => {
-      e.stopPropagation(); 
-      tasks.splice(index, 1); 
+      e.stopPropagation(); // Förhindra att klick på papperskorgen markerar uppgiften
+      tasks.splice(index, 1);
       renderTasks();
     });
 
