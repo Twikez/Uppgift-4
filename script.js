@@ -2,17 +2,21 @@ const taskInput = document.getElementById("taskInput");
 const addButton = document.getElementById("addButton");
 const taskList = document.getElementById("taskList");
 const doneCount = document.getElementById("doneCount");
-
-let tasks = []; // Array för att lagra uppgifter
+const message = document.getElementById("message");
+const tasks = []; // Array för att lagra uppgifter
 
 // Lägg till uppgifter
 addButton.addEventListener("click", () => {
   const text = taskInput.value.trim();
 
-  if (text === "") {
-    alert("Du måste skriva något!");
+  // Skriver man inte in nåt så får man upp varning
+ if (text === "") {
+    message.textContent = "Du måste skriva något!";
     return;
   }
+
+  // Rensa meddelande om det gick bra
+  message.textContent = "";
 
   const task = {
     text: text,
